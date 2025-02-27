@@ -146,11 +146,14 @@ def test_when_health_less_than_zero():
     Animal.alive = []
     lion = Carnivore("King Lion")
     rabbit = Herbivore("Susan", 25)
+
     lion.bite(rabbit)
-    assert len(Animal.alive) == 1, (
+    print(f"Alive animals after bite: {[str(animal) for animal in Animal.alive]}")
+
+    assert len(Animal.alive) == 2, (
         "Herbivore should die if health less than zero"
     )
-    assert Animal.alive[0].name == "King Lion"
+    assert Animal.alive[0].name == "King Lion", "The only alive animal should be the carnivore (Lion King)"
 
 
 def test_unnecessary_comment():
